@@ -2,6 +2,7 @@ package test
 
 import (
 	"alGO/linkedlist"
+	"alGO/queues"
 	"alGO/stacks"
 )
 
@@ -65,4 +66,27 @@ func TestStack() {
 	println("Is stack empty:", sl.IsEmpty())
 	// Print the number of nodes in the stack.
 	println("Stack size:", sl.Size())
+}
+
+func TestQueue() {
+	// Create a new queue.
+	q := queues.Queue{}
+	// Enqueue elements to the queue.
+	q.Enqueue(10)
+	q.Enqueue(20)
+	q.Enqueue(30)
+	q.Enqueue(40)
+	// Print the queue elements.
+	q.Print()
+	// Dequeue an element from the queue.
+	q.Dequeue()
+	// Print the queue elements.
+	q.Print()
+	// Peek the front element of the queue.
+	println("Front element:", q.Peek())
+	// Check if the queue is empty.
+	println("Is queue empty:", q.IsEmpty())
+	// Print the number of elements in the queue.
+	println("Queue size:", q.Size())
+
 }

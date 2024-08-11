@@ -7,5 +7,5 @@ import (
 func main() {
 	test.TestLinkedList()
 	test.TestStack()
-
+	test.TestQueue()
 }
