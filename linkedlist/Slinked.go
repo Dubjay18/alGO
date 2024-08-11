@@ -12,6 +12,7 @@ type Node struct {
 type SLinkedList struct {
 	Head   *Node // Head is a pointer to the first node of the list.
 	length int   // length keeps track of the number of nodes in the list.
+	Tail   *Node // Tail is a pointer to the last node of the list.
 }
 
 // CheckIFEmpty checks if the linked list is empty.
@@ -53,13 +54,16 @@ func (l *SLinkedList) Prepend(v int) {
 			Value: v,
 			Next:  nil,
 		}
+		l.Tail = l.Head // The Head node is also the Tail node.
 		return
 	}
 	// Prepend a new node at the beginning of the list.
-	l.Head.Next = &Node{
+	newNode := &Node{
 		Value: v,
-		Next:  nil,
+		Next:  nil, // The new node points to the old Head node.
 	}
+	newNode.Next = l.Head // The new node becomes the new Head.
+	l.Head = newNode
 }
 
 // append adds a new node with value v at the end of the linked list.
@@ -69,13 +73,14 @@ func (l *SLinkedList) Append(v int) {
 			Value: v,
 			Next:  nil,
 		}
+		l.Tail = l.Head // The Head node is also the Tail node.
 		return
 	}
-	saveNode := l.Head // Start with the Head node.
-	l.Head = &Node{    // Create a new node and make it the new Head.
+	l.Tail.Next = &Node{
 		Value: v,
-		Next:  saveNode, // The old Head node becomes the next node.
+		Next:  nil,
 	}
+	l.Tail = l.Tail.Next
 }
 
 // insert adds a new node with value v at the specified index i in the linked list.
