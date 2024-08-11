@@ -108,3 +108,20 @@ func (l *SLinkedList) Delete(i int) {
 	// Delete the node at the specified index.
 	saveNode.Next = saveNode.Next.Next
 }
+
+// search
+func (l *SLinkedList) Search(v int) {
+	if CheckIFEmpty(l) { // If the list is empty, return without searching.
+		println("List is empty")
+		return
+	}
+	saveNode := l.Head                 // Start with the Head node.
+	for i := 0; saveNode != nil; i++ { // Traverse the list until the end.
+		if saveNode.Value == v { // If the value is found, print the index and return.
+			println("Value found at index:", i)
+			return
+		}
+		saveNode = saveNode.Next // Move to the next node.
+	}
+	println("Value not found") // If the value is not found, print an error message.
+}

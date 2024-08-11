@@ -16,4 +16,5 @@ func main() {
 	l.Print()
 	l.Delete(2)
 	l.Print()
+	l.Search(40)
 }
