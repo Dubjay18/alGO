@@ -13,4 +13,5 @@ func main() {
 	fmt.Println(sorting.BubbleSort(arr))
 	fmt.Println(sorting.Merged(arr))
 	fmt.Println(sorting.Insertion(arr))
+	fmt.Println(sorting.QuickSort(arr))
 }
